@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "961699728657",
+    "firebase_url": "https://stressdetection-3c1a2-default-rtdb.firebaseio.com",
+    "project_id": "stressdetection-3c1a2",
+    "storage_bucket": "stressdetection-3c1a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961699728657:android:f78fbd0ab184ff185490b0",
+        "android_client_info": {
+          "package_name": "com.example.peacemind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ-tY-m5Hjy4jUVUWcjh9V72Bf9cjbbmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
