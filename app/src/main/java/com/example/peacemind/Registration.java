@@ -119,7 +119,8 @@ public class Registration extends AppCompatActivity {
         b1.setText("Registering...");
         b1.setEnabled(false);
 
-        LoginApi api = ApiClient.getRetrofitInstance().create(LoginApi.class);
+        //LoginApi api = ApiClient.getRetrofitInstance().create(LoginApi.class);
+        LoginApi api = ApiClient.getRetrofitInstance(getApplicationContext()).create(LoginApi.class);
         RegistrationRequest request = new RegistrationRequest(first_name, last_name, phone, email, password, confirm_password);
         Call<RegisterResponse> call = api.registerUser(request);
 

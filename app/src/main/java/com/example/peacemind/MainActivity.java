@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sh = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         // Load saved IP or set default
-        String savedIp = sh.getString("ip", "192.168.42.101");
+        String savedIp = sh.getString("ip", "192.168.43.140");
         ip.setText(savedIp);
 
         save.setOnClickListener(this);

@@ -68,14 +68,14 @@ public class Login extends AppCompatActivity {
         e1 = findViewById(R.id.editTextTextEmailAddress);
         e2 = findViewById(R.id.editTextTextPassword);
         t1 = findViewById(R.id.textView58);
-        t2 = findViewById(R.id.textView139);
+        //t2 = findViewById(R.id.textView139);
         b = findViewById(R.id.button);
         //serverBtn = findViewById(R.id.btnServerTrigger);
     }
 
     private void setupClickListeners() {
         t1.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Registration.class)));
-        t2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), forgetpass.class)));
+       // t2.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), forgetpass.class)));
 
         b.setOnClickListener(v -> {
             String email = e1.getText().toString().trim();
@@ -168,22 +168,51 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    private void checkServerStatus() {
-        String serverUrl = "http://192.168.42.101:5000/check_status";
-        OkHttpClient client = new OkHttpClient();
+//    private void checkServerStatus() {
+//        String serverUrl = "http://192.168.42.101:5000/check_status";
+//        OkHttpClient client = new OkHttpClient();
+//
+//        Request request = new Request.Builder().url(serverUrl).build();
+//        client.newCall(request).enqueue(new Callback() {
+//            @Override
+//            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+//                Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+//                e.printStackTrace(); // Optional: print to Logcat
+//            }
+//                //runOnUiThread(() -> Toast.makeText(Login.this, "❌ Server unreachable", Toast.LENGTH_SHORT).show());
+//
+//
+//            @Override
+//            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+//                runOnUiThread(() -> {
+//                    if (response.isSuccessful()) {
+//                        Toast.makeText(Login.this, "✅ Server OK", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Toast.makeText(Login.this, "⚠️ Server error: " + response.code(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
+//    }
 
+    private void checkServerStatus() {
+        SharedPreferences sh = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String baseUrl = sh.getString("url", "http://192.168.43.140:5000/"); // default fallback
+        String serverUrl = baseUrl + "check_status";
+
+        OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(serverUrl).build();
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                e.printStackTrace(); // Optional: print to Logcat
+                runOnUiThread(() ->
+                        Toast.makeText(Login.this, "❌ API Error: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                );
             }
-                //runOnUiThread(() -> Toast.makeText(Login.this, "❌ Server unreachable", Toast.LENGTH_SHORT).show());
-
 
             @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+            public void onResponse(@NonNull Call call, @NonNull Response response) {
                 runOnUiThread(() -> {
                     if (response.isSuccessful()) {
                         Toast.makeText(Login.this, "✅ Server OK", Toast.LENGTH_SHORT).show();
@@ -197,7 +226,8 @@ public class Login extends AppCompatActivity {
 
     private void performServerLogin(String email, String password) {
         //LoginResponse loginRequest = new LoginResponse(email, password);
-        LoginApi loginApi = ApiClient.getRetrofitInstance().create(LoginApi.class);
+        //LoginApi loginApi = ApiClient.getRetrofitInstance().create(LoginApi.class);
+        LoginApi loginApi = ApiClient.getRetrofitInstance(getApplicationContext()).create(LoginApi.class);
         LoginRequest request = new LoginRequest(email, password);
         retrofit2.Call<LoginResponse> call = loginApi.loginUser(request);
 

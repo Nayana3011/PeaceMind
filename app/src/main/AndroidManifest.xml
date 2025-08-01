@@ -26,6 +26,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ForgetPassActivity"
+            android:exported="false" />
+        <activity
             android:name=".StressAdviceActivity"
             android:exported="false" />
         <activity
@@ -39,21 +42,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- Login Activity -->
+        </activity> <!-- Login Activity -->
         <activity
             android:name=".Login"
             android:exported="false" /> <!-- Registration Activity -->
         <activity
             android:name=".Registration"
             android:exported="false" /> <!-- Forgot Password Activity -->
-        <activity
-            android:name=".forgetpass"
-            android:exported="false" /> <!-- IP Page Activity -->
+
         <activity
             android:name=".IP_page"
             android:exported="false" />
-
     </application>
 
 </manifest>

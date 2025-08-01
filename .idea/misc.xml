@@ -3,8 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_forget_pass.xml" value="0.1" />
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_forgetpass.xml" value="0.1" />
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_ip_page.xml" value="0.1" />
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_login.xml" value="0.131640625" />
         <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_main.xml" value="0.11851092896174864" />
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_real_time_detection.xml" value="0.1" />
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_registration.xml" value="0.1" />
         <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_stress_advice.xml" value="0.11851092896174864" />
+        <entry key="..\:/23MCAI23_PG_4th_sem_Project_2025/app/src/main/res/layout/activity_tflite_emotion_classifier.xml" value="0.1" />
         <entry key="..\:/PeaceMind/app/src/main/res/drawable-v24/ic_baseline_image_24.xml" value="0.124" />
         <entry key="..\:/PeaceMind/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.137" />
         <entry key="..\:/PeaceMind/app/src/main/res/drawable-v24/ic_menu_camera.xml" value="0.124" />
